@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   #nested routes
   #And it's common to have resources that are logically children of other resources  
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+      member do
+        patch:complete
+      end 
+    end
   end
 
   root "todo_lists#index"
